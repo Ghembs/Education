@@ -1,5 +1,5 @@
 /*
- * esercizio ciclo for, per popolare un array
+ * puntatori
  * Copyright (c) 2020 Giuliano Gambacorta
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -14,26 +14,18 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-#include <stdio>
 
-int main()
+#include <stdio.h>
+
+int main(int argc, char ** argv)
 {
-    int a[] = {1, 35, 7, 4, 9, 2000}; // definizione esplicita
+    int a = 4;
+    int * ptr = &a;
 
-    int b[10]; // b[0] ---- b[9]
-    b[2] = 2; // {0, 0, 2, 0, 0, 0, 0, 0, 0, 0}
-    b[0] = 1; // {1, 0, 2, 0, 0, 0, 0, 0, 0, 0}
+    printf("inserisci un valore intero\n");
+    scanf("%d", ptr); // equivale a scanf("%d", &a);
+    printf("%d", ptr); // stampa il valore di ptr, ovvero l'indirizzo di a (come intero)
+    printf("%d", *ptr); // equivale a printf("%d", a);
 
-    printf("Inserisci 10 valori interi:\n");
-
-    // Uso del ciclo for per inizializzare e stampare il contenuto dell'array
-    for(int i = 0;i < 10;i++)
-    {
-        scanf("%d", &b[i]); // L'indice degli elementi deve essere variabile
-    }
-
-    for(int i = 0;i < 10;i++)
-    {
-        printf("%d\n", b[i]);
-    }
+    return 0;
 }

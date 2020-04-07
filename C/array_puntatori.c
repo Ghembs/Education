@@ -1,5 +1,5 @@
 /*
- * esercizio ciclo for, per popolare un array
+ * array_puntatori
  * Copyright (c) 2020 Giuliano Gambacorta
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -14,26 +14,26 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-#include <stdio>
 
-int main()
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(int argc, char ** argv)
 {
-    int a[] = {1, 35, 7, 4, 9, 2000}; // definizione esplicita
+    // Richiamo dell'uso di puntatori con variabili
+    int val = 3;
+    int * ptr = &val;
+    *ptr = 2;
 
-    int b[10]; // b[0] ---- b[9]
-    b[2] = 2; // {0, 0, 2, 0, 0, 0, 0, 0, 0, 0}
-    b[0] = 1; // {1, 0, 2, 0, 0, 0, 0, 0, 0, 0}
+    // Dimostrazione di come un array sia indicizzabile tramite puntatori
+    int a[10];
+    *a = 4; // corrisponde a a[0] = 4;
+    *(a+2) = 5; // corrisponde a a[2] = 5;
 
-    printf("Inserisci 10 valori interi:\n");
+    // Array definito invocando esplicitamente l'allocazione di memoria
+    int * ar;
+    ar = (int *)malloc(10 * sizeof(int)); // memory allocation
 
-    // Uso del ciclo for per inizializzare e stampare il contenuto dell'array
-    for(int i = 0;i < 10;i++)
-    {
-        scanf("%d", &b[i]); // L'indice degli elementi deve essere variabile
-    }
-
-    for(int i = 0;i < 10;i++)
-    {
-        printf("%d\n", b[i]);
-    }
+    free(ar);
+    return 0;
 }

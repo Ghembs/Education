@@ -1,5 +1,5 @@
 /*
- * esercizio ciclo for, per popolare un array
+ * argomenti_main
  * Copyright (c) 2020 Giuliano Gambacorta
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -14,26 +14,19 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-#include <stdio>
 
-int main()
+#include <stdio.h>
+#include <stdlib.h>
+
+/*
+ * E' possibile passare argomenti al metodo main, come stringhe (array di caratteri),
+ * il numero di argomenti viene salvato in argc, mentre argv rappresenta un array di
+ * stringhe che li contiene, insieme al percorso (o al nome) del programma stesso
+ */
+int main(int argc, char ** argv) // arguments counter, arguments vector
 {
-    int a[] = {1, 35, 7, 4, 9, 2000}; // definizione esplicita
-
-    int b[10]; // b[0] ---- b[9]
-    b[2] = 2; // {0, 0, 2, 0, 0, 0, 0, 0, 0, 0}
-    b[0] = 1; // {1, 0, 2, 0, 0, 0, 0, 0, 0, 0}
-
-    printf("Inserisci 10 valori interi:\n");
-
-    // Uso del ciclo for per inizializzare e stampare il contenuto dell'array
-    for(int i = 0;i < 10;i++)
-    {
-        scanf("%d", &b[i]); // L'indice degli elementi deve essere variabile
-    }
-
-    for(int i = 0;i < 10;i++)
-    {
-        printf("%d\n", b[i]);
-    }
+    printf("%d\n", argc);
+    printf("%s\n", argv[0]);
+    printf("%s\n", argv[2]);
+    return 0;
 }

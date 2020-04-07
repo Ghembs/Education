@@ -1,5 +1,5 @@
 /*
- * esercizio ciclo for, per popolare un array
+ * ricorsione
  * Copyright (c) 2020 Giuliano Gambacorta
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -14,26 +14,26 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-#include <stdio>
+
+// Una funzione ricorsiva invoca sé stessa, contiene necessariamente una condizione d'arresto
+int fat(int n)
+{
+    if (n == 1)
+        return 1;
+    else
+        return n * fat(n-1);
+}
 
 int main()
 {
-    int a[] = {1, 35, 7, 4, 9, 2000}; // definizione esplicita
+    int n, fattoriale;
 
-    int b[10]; // b[0] ---- b[9]
-    b[2] = 2; // {0, 0, 2, 0, 0, 0, 0, 0, 0, 0}
-    b[0] = 1; // {1, 0, 2, 0, 0, 0, 0, 0, 0, 0}
+    printf("inserisci un numero intero\n");
+    scanf("%d", &n);
 
-    printf("Inserisci 10 valori interi:\n");
+    fattoriale = fat(n);
 
-    // Uso del ciclo for per inizializzare e stampare il contenuto dell'array
-    for(int i = 0;i < 10;i++)
-    {
-        scanf("%d", &b[i]); // L'indice degli elementi deve essere variabile
-    }
+    printf("%d! = %d", n, fattoriale);
 
-    for(int i = 0;i < 10;i++)
-    {
-        printf("%d\n", b[i]);
-    }
+    return 0;
 }
